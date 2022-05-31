@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "client": "apps/client",
+    "client-onboarding": "apps/client-onboarding",
+    "client-tokenization": "apps/client-tokenization",
+    "routes": "libs/routes",
+    "sygnum-ui": "libs/sygnum-ui"
+  }
+}

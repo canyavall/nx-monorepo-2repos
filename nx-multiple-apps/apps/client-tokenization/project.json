@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/client-tokenization/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/client-tokenization",
+        "index": "apps/client-tokenization/src/index.html",
+        "baseHref": "/",
+        "main": "apps/client-tokenization/src/main.tsx",
+        "polyfills": "apps/client-tokenization/src/polyfills.ts",
+        "tsConfig": "apps/client-tokenization/tsconfig.app.json",
+        "assets": [
+          "apps/client-tokenization/src/favicon.ico",
+          "apps/client-tokenization/src/assets"
+        ],
+        "styles": ["apps/client-tokenization/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/client-tokenization/src/environments/environment.ts",
+              "with": "apps/client-tokenization/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "client-tokenization:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "client-tokenization:build:development"
+        },
+        "production": {
+          "buildTarget": "client-tokenization:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/client-tokenization/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/client-tokenization"],
+      "options": {
+        "jestConfig": "apps/client-tokenization/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

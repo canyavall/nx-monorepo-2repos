@@ -15,7 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-two-apps/sygnum-ui": ["libs/sygnum-ui/src/index.ts"]
+      "@nx-two-apps/sygnum-components": ["libs/sygnum-components/src/index.ts"],
+      "@nx-two-apps/sygnum-constants": ["libs/sygnum-constants/src/index.ts"],
+      "@nx-two-apps/sygnum-enums": ["libs/sygnum-enums/src/index.ts"],
+      "@nx-two-apps/sygnum-hooks": ["libs/sygnum-hooks/src/index.ts"],
+      "@nx-two-apps/sygnum-layouts": ["libs/sygnum-layouts/src/index.ts"],
+      "@nx-two-apps/sygnum-types": ["libs/sygnum-types/src/index.ts"],
+      "@nx-two-apps/sygnum-ui": ["libs/sygnum-ui/src/index.ts"],
+      "@nx-two-apps/sygnum-utils": ["libs/sygnum-utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

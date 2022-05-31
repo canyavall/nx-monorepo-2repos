@@ -3,9 +3,15 @@
   "version": 2,
   "projects": {
     "client": "apps/client",
-    "frontoffice": "apps/frontoffice",
-    "frontoffice-e2e": "apps/frontoffice-e2e",
     "hub": "apps/hub",
-    "sygnum-ui": "libs/sygnum-ui"
+    "onboarding": "apps/onboarding",
+    "sygnum-components": "libs/sygnum-components",
+    "sygnum-constants": "libs/sygnum-constants",
+    "sygnum-enums": "libs/sygnum-enums",
+    "sygnum-hooks": "libs/sygnum-hooks",
+    "sygnum-layouts": "libs/sygnum-layouts",
+    "sygnum-types": "libs/sygnum-types",
+    "sygnum-ui": "libs/sygnum-ui",
+    "sygnum-utils": "libs/sygnum-utils"
   }
 }

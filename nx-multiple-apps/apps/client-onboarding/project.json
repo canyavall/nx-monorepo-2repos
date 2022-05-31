@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/client-onboarding/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/client-onboarding",
+        "index": "apps/client-onboarding/src/index.html",
+        "baseHref": "/",
+        "main": "apps/client-onboarding/src/main.tsx",
+        "polyfills": "apps/client-onboarding/src/polyfills.ts",
+        "tsConfig": "apps/client-onboarding/tsconfig.app.json",
+        "assets": [
+          "apps/client-onboarding/src/favicon.ico",
+          "apps/client-onboarding/src/assets"
+        ],
+        "styles": ["apps/client-onboarding/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/client-onboarding/src/environments/environment.ts",
+              "with": "apps/client-onboarding/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "client-onboarding:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "client-onboarding:build:development"
+        },
+        "production": {
+          "buildTarget": "client-onboarding:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/client-onboarding/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/client-onboarding"],
+      "options": {
+        "jestConfig": "apps/client-onboarding/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
